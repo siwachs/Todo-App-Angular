@@ -1,0 +1,23 @@
+<li>
+  <div class="my-3">
+    <h4 [ngClass]="{ strike: !todo.active }">
+      {{ index + 1 + ") " + todo.title }}
+    </h4>
+    <p [ngClass]="{ strike: !todo.active }" class="mb-1">{{ todo.desc }}</p>
+    <div class="form-check mb-2">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        [id]="'mark-done' + index"
+        [checked]="!todo.active"
+        (click)="markAsDone(todo)"
+      />
+      <label class="form-check-label" [for]="'mark-done' + index"
+        >Toggle Todo</label
+      >
+    </div>
+    <button class="btn btn-sm btn-danger" (click)="deleteMethod(todo)">
+      Delete
+    </button>
+  </div>
+</li>
